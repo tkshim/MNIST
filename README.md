@@ -1,7 +1,5 @@
 Hi, This is Takeshi. This code is image recognition of MNIST.
-I build a PCA from scrach not using built in function. So I'd like to share my code :-)
-*This is good explanation website about PCA theory.
- https://deeplearning4j.org/eigenvector.html
+I build a PCA(Principal Componet Analysis) from scrach not using built in function. So I'd like to share my code :-)
 
 1. Content:
 - To build image recognition model by using PCA and NativeBayes.
@@ -18,7 +16,7 @@ I build a PCA from scrach not using built in function. So I'd like to share my c
 - sklearn
 
 5. Summary：
-- I got more than 80 % accuracy although I use built in function (sklearn GaussianNB)
+- I got more than 80 % accuracy although I use original PCA !
 
 ■step1
 - Download the datasets form this url (New York University LeCun Professor).
@@ -46,8 +44,9 @@ show()
 
 ■step４
 This is main part of PCA. 
-To create eigenvector from feature vector by using eigh function.
-
+To create eigenvector from feature vector by using linear algebra technique.
+*This is good explanation website about PCA theory ang algorithm.
+ https://deeplearning4j.org/eigenvector.html
 
 ```py
 X = np.vstack((Xtr,Xte))
@@ -153,9 +152,10 @@ model.fit(P[0:A,0:B],T[0:A])
 ```
 ![cm70.png](https://qiita-image-store.s3.amazonaws.com/0/141816/8d21db36-5df8-ff0d-94a2-48c14ffb3de0.png)
 
-■ The Difference between two eigenvectors and 70 eignvecotrs.
-The first picture is two eigenvectors and the second picture is 70 eignvecotrs.
-The contour of digit is clearer than  tow eigenvectors.
+■ The Difference between two feature vectors and 70 feature vecotrs.
+The first picture is two feature vectors and the second picture is 70 feature vecotrs.
+The contour of digit is clearer than  tow feature vectors.
+* These feature vectors is re-constructed by eigenvectors.
 
 ![2.png](https://qiita-image-store.s3.amazonaws.com/0/141816/10ab8499-1aad-8a2d-50e5-521b9194b74b.png)
 
@@ -171,5 +171,5 @@ show()
 ```
 
 ■Summary
-- I got more than 80 % accuracy although I use built in function (sklearn GaussianNB)
+- I got more than 80 % accuracy although I use original PCA !
 - I attempt to build a Bayes from scrach next time in order to increase a accuracy.
